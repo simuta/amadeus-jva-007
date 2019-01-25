@@ -1,5 +1,7 @@
 package com.amadeus.birds;
 
+import java.util.Objects;
+
 public class Bird {
 
     private String name;
@@ -41,7 +43,24 @@ public class Bird {
         this.quantity -= qntSell;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bird bird = (Bird) o;
+        return Double.compare(bird.price, price) == 0 &&
+                quantity == bird.quantity &&
+                Objects.equals(name, bird.name);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(name, price, quantity);
+    }
+
     public void addBird (int addBird){
+
         this.quantity += addBird;
     }
 
