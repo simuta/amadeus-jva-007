@@ -14,7 +14,6 @@ public class Main
         User userTwo = new User("Bart");
         User userThree = new User("Lisa");
 
-
         Bird birdOne = new Bird("Sova", 20.5, 10);
         Bird birdTwo = new Bird("Orel", 50, 5);
         Bird birdThree = new Bird("Vorobey", 23, 7);
@@ -31,11 +30,8 @@ public class Main
 
         testShop.getPrintMap();
         testShop.Total();
-
         testShop.getTotalByBirdQnt(birdOne.getName());
         testShop.getTotalByBirdPrice(birdOne.getName());
-
-
         testShop.getUserSetByTotalPrice();
         testShop.getUserSetByQnt();
 
