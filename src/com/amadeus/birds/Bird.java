@@ -14,6 +14,10 @@ public class Bird {
         this.quantity = quantity;
     }
 
+    public Bird (){
+
+    }
+
     public void setName (String name){
         this.name = name;
     }
