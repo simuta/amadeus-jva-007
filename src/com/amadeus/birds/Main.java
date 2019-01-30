@@ -12,13 +12,12 @@ public class Main
 
         User userOne = new User("Homer");
         User userTwo = new User("Bart");
+        User userThree = new User("Lisa");
 
 
         Bird birdOne = new Bird("Sova", 20.5, 10);
         Bird birdTwo = new Bird("Orel", 50, 5);
         Bird birdThree = new Bird("Vorobey", 23, 7);
-
-
 
         Shop testShop = new Shop();
 
@@ -27,10 +26,18 @@ public class Main
         testShop.buyBird(userTwo,birdOne, 5);
         testShop.buyBird(userOne,birdThree, 1);
         testShop.buyBird(userOne,birdThree, 25);
-
+        testShop.buyBird(userThree,birdOne, 1);
+        testShop.buyBird(userOne,birdOne, 1);
 
         testShop.getPrintMap();
-        System.out.println("Total: " + testShop.Total());
+        testShop.Total();
+
+        testShop.getTotalByBirdQnt(birdOne.getName());
+        testShop.getTotalByBirdPrice(birdOne.getName());
+
+
+        testShop.getUserSetByTotalPrice();
+        testShop.getUserSetByQnt();
 
     }
 }
