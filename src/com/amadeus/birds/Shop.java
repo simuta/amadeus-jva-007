@@ -5,15 +5,17 @@ import java.util.HashMap;
 public class Shop {
 
 
-    public void getPrintMap(HashMap<Integer, String[]> tMap){
+    private HashMap <Integer, String[]> testMap = new HashMap<Integer, String[]>();
+
+    public void getPrintMap(){
 
         System.out.println("----------");
 
-        for (Integer item: tMap.keySet()) {
+        for (Integer item: this.testMap.keySet()) {
 
             System.out.print(item + " ");
 
-            for (String arrStr: tMap.get(item)) {
+            for (String arrStr: this.testMap.get(item)) {
 
                 System.out.print(arrStr + " ");
             }
@@ -25,29 +27,36 @@ public class Shop {
     }
 
 
-    public Double Total (HashMap<Integer, String[]> tMap){
+    public Double Total (){
 
         double total = 0;
 
-        for (Integer item: tMap.keySet()) {
-            total += Double.parseDouble(tMap.get(item)[2]) * Double.parseDouble(tMap.get(item)[3]);
+        for (Integer item: this.testMap.keySet()) {
+            total += Double.parseDouble(this.testMap.get(item)[2]) * Double.parseDouble(this.testMap.get(item)[3]);
         }
 
         return total;
     }
 
 
-    public String [] buyBird(User user, Bird bird, Integer qnt) {
+    public void buyBird(User user, Bird bird, Integer qnt) {
 
-        bird.sell(qnt);
 
         String [] result = new String [4];
 
-        result [0] = user.getName();
-        result [1] = bird.getName();
-        result [2] = String.valueOf(bird.getPrice());
-        result [3] = qnt.toString();
+        if (bird.getQuantity() > qnt){
 
-        return result;
+            bird.sell(qnt);
+
+            result [0] = user.getName();
+            result [1] = bird.getName();
+            result [2] = String.valueOf(bird.getPrice());
+            result [3] = qnt.toString();
+
+            this.testMap.put(testMap.size()+1, result);
+
+            System.out.println("Ок");
+        }
+            else System.out.println("not Ok");
     }
 }

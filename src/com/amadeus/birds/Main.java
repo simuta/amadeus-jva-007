@@ -15,19 +15,22 @@ public class Main
 
 
         Bird birdOne = new Bird("Sova", 20.5, 10);
-        Bird birdTwo = new Bird("Orel", 50, 2);
+        Bird birdTwo = new Bird("Orel", 50, 5);
+        Bird birdThree = new Bird("Vorobey", 23, 7);
 
 
-        HashMap <Integer, String[]> testMap = new HashMap<Integer, String[]>();
+
         Shop testShop = new Shop();
 
+        testShop.buyBird(userOne,  birdOne, 1);
+        testShop.buyBird(userTwo,birdTwo, 2);
+        testShop.buyBird(userTwo,birdOne, 5);
+        testShop.buyBird(userOne,birdThree, 1);
+        testShop.buyBird(userOne,birdThree, 25);
 
-        testMap.put(testMap.size()+1, testShop.buyBird(userOne,  birdOne, 1));
-        testMap.put(testMap.size()+1, testShop.buyBird(userTwo,birdTwo, 2));
 
-
-        testShop.getPrintMap(testMap);
-        System.out.println("Total: " + testShop.Total(testMap));
+        testShop.getPrintMap();
+        System.out.println("Total: " + testShop.Total());
 
     }
 }
